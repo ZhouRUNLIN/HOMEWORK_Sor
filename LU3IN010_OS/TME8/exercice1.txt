@@ -1,0 +1,34 @@
+Exercice 1:
+
+On note \0 les cases alouées,  et _ les espaces et - les cases non alouées
+
+1.1.
+
+On suppose le tas initialement vide et on ajoute une donnée de taille maximale (taille = 125)
+L'apparence du tas est:
+
+ 125  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0
+  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0
+  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0
+  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0
+  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0  \0   1  -1
+
+où la première case est 125.
+Puis on a 125 zéros sur les cases suivantes,.
+l'avant dernière case (127e) contient un 1 .
+La derniere case contient -1.
+
+1.2.
+Après l’exécution des opérations, avant le premier tas_free, on obtient le tas suivant:
+  10   t   p   _   1  \0  \0  \0  \0  \0  \0   9   t   p   _   2  \0  \0  \0  \0
+  \0   5   t   p   _   3  \0 100  -1   -   -   -   -   -   -   -   -   -   -   -
+   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+
+Après le tas_free et l'ajout de p4, on obtient le tas:
+  10   t   p   _   1  \0  \0  \0  \0  \0  \0   8   s   y   s   t   e   m   e   \0
+   -   5   t   p   _   3  \0 100  -1   -   -   -   -   -   -   -   -   -   -   -
+   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -

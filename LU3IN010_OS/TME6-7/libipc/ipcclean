@@ -1,0 +1,56 @@
+#!/bin/sh
+
+function cleanSem
+{
+   myid=`id -un`
+   echo Cleaning all Semaphore Arrays of owner $myid ...
+   ipcs -s | tr -s " " | grep $myid | cut -d " " -f2 | grep "[0-9].*" | while read idipc; do
+	echo -en "Trying to remove Semaphore Array id $idipc ... "
+	(ipcrm sem $idipc  2>/dev/null 1>/dev/null) && echo "done" || echo "error [not owner ?]"
+   done
+   echo ... clean done
+   echo
+}
+
+function cleanShm
+{
+   myid=`id -un`
+   echo Cleaning all Shared Memory Segments of owner $myid ...
+   ipcs -m | tr -s " " | grep $myid | cut -d " " -f2 | grep "[0-9].*" |  while read idipc; do
+	echo -en "Trying to remove Shared Memory Segment id $idipc ... "
+	(ipcrm shm $idipc  2>/dev/null 1>/dev/null) && echo "done" || echo "error [not owner ?]"
+    done
+   echo ... clean done
+   echo
+}
+
+function cleanMsg
+{
+   myid=`id -un`
+   echo Cleaning all Message Queues of owner $myid ...
+   ipcs -q | tr -s " " | grep $myid | cut -d " " -f2 | grep "[0-9].*" |  while read idipc; do
+	echo -en "Trying to remove Message Queue id $idipc ... "
+	(ipcrm msg $idipc 2>/dev/null 1>/dev/null) && echo "done" || echo "error [not owner ?]"
+   done
+   echo ... clean done
+   echo
+}
+
+case $1 in
+   [Ss][hH][mM])
+   cleanShm
+   ;;
+   [Ss][eE][mM])
+   cleanSem
+   ;;
+   [Mm][Ss][gG])
+   cleanMsg
+   ;;
+   *)
+   cleanShm
+   cleanMsg
+   cleanSem
+   ;;
+esac
+
+ipcs -a

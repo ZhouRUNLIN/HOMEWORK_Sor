@@ -1,0 +1,105 @@
+Binome:
+ZHOU runlin 28717281
+MA peiran 28717249
+
+
+TME 3
+
+
+-------------
+| Partie 1: |
+-------------
+
+La valeur du quantum change le temps. Ci dessous, on a les resultat pour un quantum de 1 seconde et
+de 0.1 seconde.
+
+
+quantum = 1 sec
+
+PID	FUNCTION	REAL-TIME	CPU-TIME	WAITING-TIME
+--------------------------------------------------------------------
+0	Function0	6.850s		2.784s		4.066s
+1	Function1	4.450s		2.828s		1.622s
+2	Function2	1.207s		0.208s		1.000s
+3	Function3	0.727s		0.207s		0.521s
+4	Function4	4.241s		0.205s		4.036s
+5	Function5	3.765s		0.205s		3.560s
+6	Function6	0.803s		0.208s		0.595s
+7	Function7	2.317s		0.206s		2.111s
+8	Function8	2.219s		0.204s		2.015s
+9	Function9	1.096s		0.204s		0.892s
+--------------------------------------------------------------------
+Average:		2.768s		0.726s		2.042s
+--------------------------------------------------------------------
+
+quantum = 0.1 sec
+PID	FUNCTION	REAL-TIME	CPU-TIME	WAITING-TIME
+--------------------------------------------------------------------
+0	Function0	7.347s		2.801s		4.546s
+1	Function1	6.238s		2.870s		3.368s
+2	Function2	0.306s		0.206s		0.100s
+3	Function3	0.808s		0.208s		0.600s
+4	Function4	1.099s		0.215s		0.884s
+5	Function5	0.563s		0.208s		0.356s
+6	Function6	0.310s		0.214s		0.096s
+7	Function7	0.642s		0.210s		0.432s
+8	Function8	0.598s		0.207s		0.391s
+9	Function9	0.501s		0.208s		0.294s
+--------------------------------------------------------------------
+Average:		1.841s		0.735s		1.107s
+--------------------------------------------------------------------
+
+
+-------------
+| Partie 2: |
+-------------
+
+Pour une election Shortest Job First, on obtient par exemple le résultat suivant
+
+quantum = 1 sec
+PID	FUNCTION	REAL-TIME	CPU-TIME	WAITING-TIME
+--------------------------------------------------------------------
+0	Function0	3.362s		2.750s		0.612s
+1	Function1	6.946s		2.756s		4.190s
+2	Function2	1.202s		0.202s		1.000s
+3	Function3	0.720s		0.205s		0.515s
+4	Function4	0.826s		0.204s		0.622s
+5	Function5	0.890s		0.203s		0.687s
+6	Function6	1.208s		0.208s		1.000s
+7	Function7	0.733s		0.209s		0.525s
+8	Function8	0.830s		0.207s		0.623s
+9	Function9	0.897s		0.207s		0.690s
+--------------------------------------------------------------------
+Average:		1.761s		0.715s		1.046s
+--------------------------------------------------------------------
+
+
+-------------
+| Partie 3: |
+-------------
+
+Pour une election avec une approximation de SJ, on obtient le rsultat suivant:
+
+quantum = 1 sec
+PID	FUNCTION	REAL-TIME	CPU-TIME	WAITING-TIME
+--------------------------------------------------------------------
+0	Function0	6.021s		2.783s		3.238s
+1	Function1	7.006s		2.778s		4.228s
+2	Function2	2.206s		0.206s		2.000s
+3	Function3	1.719s		0.207s		1.512s
+4	Function4	1.619s		0.206s		1.413s
+5	Function5	1.131s		0.206s		0.925s
+6	Function6	0.821s		0.206s		0.615s
+7	Function7	0.816s		0.206s		0.610s
+8	Function8	0.910s		0.207s		0.703s
+9	Function9	0.901s		0.207s		0.694s
+--------------------------------------------------------------------
+Average:		2.315s		0.721s		1.594s
+--------------------------------------------------------------------
+
+Il est possible que l'algorithme provoque une famine, on peut le modifier en utilisant la date de creation:
+	- on calcule la difference entre la date actuelle et la date de creation (resultat en seconde)
+		thisdate.tv_sec - Tproc[i].start_time.tv_sec 
+	- on fixe la valeur DATE_LIMITE (modifiable au debut du fichier scen.c) en secondes
+	- si la difference est superieure à celle de la date limite, alors le processus sera elu automatiquement
+

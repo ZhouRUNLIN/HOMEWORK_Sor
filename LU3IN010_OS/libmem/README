@@ -1,0 +1,50 @@
+#Under GPL, like all files around !
+#June the 24th 2005
+#Created by Mathieu VALERO
+#For any feedbacks/questions : mathieuvalero@hotmail.com
+
+
+
+I) What is libmem ?
+-------------------
+
+libmem is a simple library to easily build (and then bench ;-) different swapping algorithm.
+
+
+
+
+II) Installing and using libmem
+-------------------------------
+
+To install libmem, just type
+
+>> make libmem
+
+Then the lib directory will contain libmem.a
+
+If you want some examples, have a look at the sources in the src directory.
+You can build them by typing
+
+>> make algorithm
+
+If you only type
+
+>> make
+
+libmem, algorithm plus a simple main program will be build.
+
+
+
+III) Credits
+------------
+
+Thanks to M. Sens that let me make this tiny library
+to my suggarplume Coco, I'd need thousands of pages to thank her (I love you honey)
+to my sister Mathilde who's a nice sister
+to my parents who are nice parents
+to my family who's a nice one
+and to M. Laroque who helped me not to give up this year !
+
+
+
+-----> Have fun !!! <-----

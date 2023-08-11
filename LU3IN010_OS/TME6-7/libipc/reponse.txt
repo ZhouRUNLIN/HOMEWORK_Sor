@@ -1,0 +1,11 @@
+1.1
+
+Il faut bloquer l'utilisation du compteur aux autres récepteurs puisqu'il faut bloquer la variable partagée lorsqu'un récepteur incrémente celui-ci.
+
+
+1.2
+
+On utilise un tableau de sémaphores puisqu'on doit attendre que tous les récepteurs confirment la réception de l'émission.
+Avec qu'un seul sémaphore augmenté de NR, un seul récepteur aurait pu confirmer sa réception mais pas les autres. A contrario, la non-utilisation de ce sémaphore le rend inutile.
+
+Quand un verrou est levé, le sémaphore prévient les émetteurs de la disponibilité de la case.
