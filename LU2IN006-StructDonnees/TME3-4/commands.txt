@@ -1,0 +1,29 @@
+1
+2
+100000 Perlimpinpin Moimeme
+2
+100001 PerlimpinpinDeRetour Moimeme
+1
+3
+100001
+4
+Perlimpinpin
+5
+Moimeme
+3
+-1
+4
+CeLivreNenEstPasUn
+5
+ZakarieAloui
+6
+100001 PerlimpinpinDeRetour Moimeme
+1
+6
+1 blabla glouglou
+7
+ceFichierNenNestPaZun.txt 10
+7
+PetiteBiblio.txt 100
+0
+BiblioSauvegarde.txt
