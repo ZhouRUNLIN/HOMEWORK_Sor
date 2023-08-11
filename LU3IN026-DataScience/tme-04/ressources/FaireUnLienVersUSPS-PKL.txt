@@ -1,0 +1,2 @@
+commande utile: ln -s
+(création d'un lien symbolique)
