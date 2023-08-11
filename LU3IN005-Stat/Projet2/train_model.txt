@@ -1,0 +1,35 @@
+def train_model(self):
+    """
+    Pour faire des prédictions, nous devons construire des modèles à 
+partir de données. Afin de respecter les conditions d'utilisation de 
+l'algorithme apriori, nous encodons d'abord les caractéristiques avec la 
+fonction get_dummies().
+    Afin d'obtenir la relation entre l'entité et la cible, nous calculons 
+sa portance. Une valeur de lift supérieure à 1 est une corrélation 
+positive, et inférieure à 1 est une corrélation négative.
+    Afin de faciliter la comparaison de la relation, nous utilisons la 
+fonction logarithmique et utilisons log(lift) comme indicateur de relation 
+entre l'entité et la cible.
+    La fonction génère un dictionnaire avec chaque caractéristique encodée 
+et son index de relation sous forme de paires clé-valeur.
+    """
+    
+    dict0=dict()
+    train0=pd.read_csv("train.csv")
+    
+    for i in train0.keys():
+        if i != "target":
+            train0[i]=train0[i].astype(str)
+            
+    encoded_train=pd.get_dummies(train0)
+    pClass1=getPrior(train0)["estimation"]
+    dataClass1=encoded_train.groupby("target").get_group(1)
+    
+    for j in encoded_train.keys():
+        if j != "target":
+            pJClass1=max(dataClass1.sum()[j],1)/dataClass1.count()[j]
+            pJ=encoded_train.sum()[j]/encoded_train.count()[j]
+            dict0[j]=math.log(pJClass1/(pJ*pClass1))
+            
+    return dict0
+   

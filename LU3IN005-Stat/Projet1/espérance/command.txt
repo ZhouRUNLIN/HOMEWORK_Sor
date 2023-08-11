@@ -1,0 +1,3 @@
+plot "data.txt" using 1:2 title 'P(n = k)' with lines
+set term postscript portrait
+set size 0.7, 0.7
