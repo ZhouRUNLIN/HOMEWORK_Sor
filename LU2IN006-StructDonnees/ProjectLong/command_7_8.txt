@@ -1,0 +1,4 @@
+plot "sortieTime.txt" using 1:2 title 'Proofwork' with lines
+set term postscript portrait
+set output "courbes_7_8.ps"
+set size 0.7, 0.7
