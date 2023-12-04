@@ -73,7 +73,7 @@ class fileBinomial:
         representer comme une suite de Tournois, les donnees sont stockee dans une liste de python
     """
     # Creer un BF tel qu'il ait au maximum max tournois.
-    def __init__(self, max):
+    def __init__(self, max=0):
         # tous les elements de la liste sont init a None
         # pour representer que cette FB est vide
         self.maxSize = max
@@ -269,4 +269,3 @@ if __name__ == '__main__' :
 
     produceGraphe(data1, x_axis = [(math.pow(2, i))-1 for i in range(size)], title = "Representation Graphique", xlabel = "number of node", ylabel="time used")
     produceGraphe(data2, x_axis = [(math.pow(2, i))-1 for i in range(size)], title = "Representation Graphique", xlabel = "number of node", ylabel="time used")
-

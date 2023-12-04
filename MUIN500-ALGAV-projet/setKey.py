@@ -62,6 +62,12 @@ class Key:
     def __ge__(self, other):
         if isinstance(other, Key):
             return self.__gt__(other) or self.__eq__(other)
+    
+    def randomKey(self):
+        string = ""
+        for i in range(32):
+            string += str(random.randint(0, 15))
+        self.storeNum(string)
 
 # test pour la fonction inf et eg
 if __name__ == '__main__':

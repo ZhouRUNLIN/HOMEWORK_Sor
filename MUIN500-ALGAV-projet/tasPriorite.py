@@ -66,6 +66,26 @@ class TasTab:
             # 从最后一个非叶子节点开始，依次进行下沉操作，保持最小堆性质
             for i in range(self.size//2 - 1, -1, -1):
                 self.heaplify(i)
+
+    def fix_up(self):
+        fils = self.size - 1            # index du dernier element 
+        while indexPere(fils) >= 0:     # il existe le pere
+            pere = indexPere(fils)      # index du pere
+            if self.data[pere] <= self.data[fils]: 
+                break
+            self.data[pere], self.data[fils] = self.data[fils], self.data[pere] # fait le swap
+            fils = pere
+    
+    def fix_down(self):
+        """
+            将data中, 以data[p]为根的子堆进行调整为tasmin
+        """  
+        pere = 0     # init du index du pere
+        while indexFilsGauche(pere) < self.size:  # il existe le fils gauche
+            if self.heaplify(pere) == 1:
+                pere = indexFilsGauche(pere)
+            else:
+                break
     
     def heaplify(self, p):
         """
@@ -82,40 +102,15 @@ class TasTab:
                 self.data[p], self.data[fils] = self.data[fils], self.data[p]
                 return 1
         return 0
-
-    def fix_up(self):
-        fils = self.size - 1            # index du dernier element 
-        while indexPere(fils) >= 0:     # il existe le pere
-            pere = indexPere(fils)      # index du pere
-            if self.data[pere] <= self.data[fils]: 
-                break
-            self.data[pere], self.data[fils] = self.data[fils], self.data[pere] # fait le swap
-            fils = pere
-    
-    def fix_down(self):
-        """
-            将data中，以data[p]为根的子堆进行调整为tasmin
-        """  
-        pere = 0     # init du index du pere
-        while indexFilsGauche(pere) < self.size:  # il existe le fils gauche
-            if self.heaplify(pere) == 1:
-                pere = indexFilsGauche(pere)
-            else:
-                break
-        # while indexFilsGauche(pere) < self.size:            # il existe le fils gauche
-        #     fils = indexFilsGauche(pere)
-        #     if fils < self.size - 1:                        # il existe le fils droite
-        #         if self.data[fils] > self.data[fils + 1]:   # comparasion des deux fils
-        #             fils += 1
-        #     if self.data[pere] <= self.data[fils]:          # si la valeur de pere est plus petite que le fils
-        #         break                                       # le pere est a la place, donc on sort la boucle
-        #     self.data[pere], self.data[fils] = self.data[fils], self.data[pere] # fait le swap
-        #     pere = fils
+        
     def degree(self):
         return log2Up(self.size)
     
     def reset(self):
         self.__init__()
+    
+    def affiche(self):
+        print(self.data)
 
 
 if __name__ == '__main__':
