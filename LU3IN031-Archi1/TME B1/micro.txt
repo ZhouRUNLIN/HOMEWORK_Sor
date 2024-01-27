@@ -1,0 +1,31 @@
+lw
+x_cpc  y_c4 a_add r_npc nop nop s_opc
+x_ir y_c16 a_sll r_dad nop nop s_jmp
+x_dad y_c16 a_sra r_dad nop nop s_jmp
+x_rs y_dad a_add r_dad nop nop s_jmp
+x_c0 y_c0 a_add nop m_rdw nop s_jmp
+x_din y_c0 a_add r_rd nop nop s_jmp
+
+
+sw
+x_cpc  y_c4 a_add r_npc nop nop s_opc
+x_ir y_c16 a_sll r_dad nop nop s_jmp
+x_dad y_c16 a_sra r_dad nop nop s_jmp
+x_rs y_dad a_add r_dad nop nop s_jmp
+x_rt y_c0 a_add r_dot nop nop s_jmp
+x_c0 y_c0 a_add nop m_wtw nop s_jmp
+
+
+sll
+x_cpc  y_c4 a_add r_npc nop nop s_opc
+
+x_ir y_c2 a_srl r_dad nop nop s_jmp
+x_dad y_c4 a_srl r_dad nop nop s_jmp
+x_dad y_c24 a_sll r_dad nop nop s_jmp
+x_dad y_c2 a_sll r_dad nop nop s_jmp
+x_dad y_c1 a_sll r_dad nop nop s_jmp
+x_dad y_c24 a_srl r_dad nop nop s_jmp
+x_dad y_c2 a_srl r_dad nop nop s_jmp
+x_dad y_c1 a_srl r_dad nop nop s_jmp
+
+x_Rt y_dad a_sll r_rd nop nop s_jmp
