@@ -1,0 +1,4 @@
+# to start sqlworkbench
+java -jar sqlworkbench.jar
+
+
