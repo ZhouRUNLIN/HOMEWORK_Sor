@@ -1,0 +1,36 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Interpréteur et commandes de base":{
+	 	"required":[
+			"srcs/interpretor/Command.java",
+			"srcs/interpretor/Cat.java",
+			"srcs/interpretor/Echo.java",
+			"srcs/interpretor/CommandInterpretor.java"
+		],
+		"tests":[
+			"srcs.interpretor.test.CommandInterpretorTest1"
+		]
+	 },
+	 "2-Déployer/supprimer des commandes dynamiquement":{
+	 	"required":[
+			"srcs/interpretor/Command.java",
+			"srcs/interpretor/CommandInterpretor.java"
+		],
+		"tests":[
+			"srcs.interpretor.test.CommandInterpretorTest2"
+		]
+	 },
+	 "3-Interpréteur persistant":{
+	 	"required":[
+			"srcs/interpretor/Command.java",
+			"srcs/interpretor/CommandInterpretor.java"
+			
+		],
+		"tests":[
+			"srcs.interpretor.test.CommandInterpretorTest3"
+		]
+	 }
+	}	
+}

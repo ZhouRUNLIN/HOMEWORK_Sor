@@ -1,0 +1,42 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Persistance d'un tableau d'entiers":{
+	 	"required":[
+			"srcs/persistance/PersistanceArray.java"
+		],
+		"tests":[
+			"srcs.persistance.test.TableauIntTest"
+		]
+	 },
+	 "2-Persistance d'un objet":{
+	 	"required":[
+			"srcs/banque/Compte.java",
+			"srcs/persistance/PersistanceCompte.java",
+			"srcs/persistance/PersistanceSauvegardable.java",
+			"srcs/persistance/Sauvegardable.java"
+		],
+		"tests":[
+			"srcs.persistance.test.CompteTest",
+			"srcs.persistance.test.SauvegardableTest"
+		]
+	 },
+	 "3-Persistance d'un graphe d'objets":{
+	 	"required":[
+			"srcs/banque/Compte.java",
+			"srcs/banque/Banque.java",
+			"srcs/banque/Client.java",
+			"srcs/persistance/PersistanceSauvegardable.java",
+			"srcs/persistance/Sauvegardable.java"
+			
+		],
+		"tests":[
+			"srcs.persistance.test.Banque2Clients2ComptesTest",
+			"srcs.persistance.test.BanqueCompteJoinTest"
+		]
+	 }
+	}
+	
+	
+}
