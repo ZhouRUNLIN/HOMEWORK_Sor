@@ -1,0 +1,43 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Serveur multithreadé et service avec ou sans état":{
+	 	"required":[
+			"srcs/service/Service.java",
+			"srcs/service/SansEtat.java",
+			"srcs/service/EtatGlobal.java",
+			"srcs/service/ServeurMultiThread.java"
+			
+		],
+		"tests":[
+			"srcs.service.test.TestServeurMultiThread"
+		]
+	 },
+	 "2-Programmation de services":{
+	 	"required":[
+			"srcs/service/calculatrice/Calculatrice.java",
+			"srcs/service/annuaire/Annuaire.java",
+			"srcs/service/calculatrice/CalculatriceService.java",
+			"srcs/service/annuaire/AnnuaireService.java"
+		],
+		"tests":[
+			"srcs.service.test.TestService"
+		]
+	 },
+	 "3-Abstraction de la couche Socket : vers l’appel distant":{
+	 	"required":[
+			"srcs/service/AppelDistant.java",
+			"srcs/service/annuaire/AnnuaireAppelDistant.java",
+			"srcs/service/calculatrice/CalculatriceAppelDistant.java",
+			"srcs/service/ClientProxy.java",
+			"srcs/service/annuaire/AnnuaireProxy.java",
+			"srcs/service/calculatrice/CalculatriceProxy.java"
+			
+		],
+		"tests":[
+			"srcs.service.test.TestAppelDistant"
+		]
+	 }
+	}	
+}
