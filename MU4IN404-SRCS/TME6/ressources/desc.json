@@ -1,0 +1,15 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Interpréteur et commandes de base":{
+	 	"required":[
+	 		"srcs/chat/implem/ChatImpl.java",
+			"srcs/chat/implem/ChatProxy.java"
+		],
+		"tests":[
+			"srcs.chat.implem.test.Testchat"
+		]
+	 }
+	}	
+}

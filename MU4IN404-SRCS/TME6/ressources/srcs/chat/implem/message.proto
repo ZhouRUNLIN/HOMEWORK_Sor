@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+
+message SubM {
+    string  pseudo  = 1;
+    string  host    = 2;
+    int32   port    = 3;
+}
+
+message SendM {
+    string pseudo   = 1;
+    string message  = 2;
+}
+
+service Chat {
+    rpc subscribe   (SubM)  returns (google.protobuf.BoolValue);
+    rpc send        (SendM) returns (google.protobuf.Int32Value);
+    rpc listChatter (google.protobuf.Empty)  returns (stream google.protobuf.StringValue);
+    rpc unsubscribe (stream google.protobuf.StringValue) returns (google.protobuf.Empty);
+}
+
+service MessageReceiver {
+    rpc newMessage  (SendM) returns (google.protobuf.Empty);
+}
