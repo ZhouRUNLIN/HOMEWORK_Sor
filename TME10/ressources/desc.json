@@ -1,0 +1,14 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Compagnie aérienne":{
+	 	"required":[
+	 		"srcs/webservices/SRCSWebServiceFactory.java"
+		],
+		"tests":[
+			"srcs.webservices.airline.test.AirlineServiceTest"
+		]
+	 }
+	}	
+}

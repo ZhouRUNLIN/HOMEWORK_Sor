@@ -1,0 +1,19 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Déploiement et migration de services RMI":{
+	 	"required":[
+	 		"srcs/rmi/service/Host.java",
+			"srcs/rmi/service/FunctionService.java",
+			"srcs/rmi/service/HostImpl.java",
+			"srcs/rmi/service/AbstractFunctionService.java",
+			"srcs/rmi/service/test/SystemDeployer.java"
+		],
+		"tests":[
+			"srcs.rmi.service.test.ServiceSansEtatTest",
+			"srcs.rmi.service.test.ServiceAvecEtatTest"
+		]
+	 }
+	}	
+}
