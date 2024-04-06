@@ -1,0 +1,56 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Programmation d'un canal bidirectionnel":{
+	 	"required":[
+			"srcs/securite/ChannelBasic.java",
+			"srcs/securite/ChannelDecorator.java"
+		],
+		"tests":[
+			"srcs.securite.test.TestChannelBasic"
+		]
+	 },
+	 "2-Génération de clés, certification et gestion de mots de passe":{
+	 	"required":[
+			"srcs/securite/Certif.java",
+			"srcs/securite/CertificationAuthority.java",
+			"srcs/securite/Util.java",
+			"srcs/securite/PasswordStore.java"
+		],
+		"tests":[
+			"srcs.securite.test.TestUtil",
+			"srcs.securite.test.TestCertification",
+			"srcs.securite.test.TestPasswordStore"
+		]
+	 },
+	 "3-Authentification":{
+	 	"required":[
+			"srcs/securite/Authentication.java"			
+		],
+		"tests":[
+			"srcs.securite.test.TestAuthentication"
+		]
+	 },
+	  "4-Confidentialité":{
+	 	"required":[
+			"srcs/securite/SecureChannelConfidentiality.java"
+		],
+		"tests":[
+			"srcs.securite.test.TestSecureChannelConfidentiality"
+		]
+	 },
+	  "4-Intégrité":{
+	 	"required":[
+			"srcs/securite/SecureChannelIntegrity.java"
+		],
+		"tests":[
+			"srcs.securite.test.TestSecureChannelIntegrity"
+		]
+	 }
+	 
+	 
+	}
+	
+	
+}

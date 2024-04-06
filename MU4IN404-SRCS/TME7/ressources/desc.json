@@ -1,0 +1,27 @@
+{
+	"compiler":"javac",
+	"command":"java",
+	"exercices":{
+	 "1-Implémentation avec clients fiables":{
+	 	"required":[
+			"srcs/rmi/concurrent/SharedVariable.java",
+			"srcs/rmi/concurrent/SharedVariableClassical.java",
+			"srcs/rmi/concurrent/test/SystemDeployer.java"
+			
+		],
+		"tests":[
+			"srcs.rmi.concurrent.test.TestSharedVariableClassical"
+		]
+	 },
+	 "2-Implémentation avec clients non fiables":{
+	 	"required":[
+			"srcs/rmi/concurrent/SharedVariable.java",
+			"srcs/rmi/concurrent/SharedVariableReliable.java",
+			"srcs/rmi/concurrent/test/SystemDeployer.java"
+		],
+		"tests":[
+			"srcs.rmi.concurrent.test.TestSharedVariableReliable"
+		]
+	 }
+	}	
+}
