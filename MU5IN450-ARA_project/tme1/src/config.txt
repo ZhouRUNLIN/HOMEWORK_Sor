@@ -1,0 +1,14 @@
+network.size 5
+simulation.endtime 50000
+random.seed 20
+
+protocol.transport UniformRandomTransport
+protocol.transport.mindelay 20
+protocol.transport.maxdelay 30
+
+protocol.hello ara.HelloProtocol
+protocol.hello.transport transport
+protocol.hello.maxsizelist 5
+
+init.i ara.Initialisateur
+init.i.hellopid hello
