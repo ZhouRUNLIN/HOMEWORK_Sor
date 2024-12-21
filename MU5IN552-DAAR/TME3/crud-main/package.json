@@ -1,0 +1,17 @@
+{
+  "name": "crud-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@frenchpastries/assemble": "^0.2.1",
+    "@frenchpastries/millefeuille": "^0.1.11",
+    "@ghivert/caravel": "^0.1.1",
+    "dotenv": "^8.2.0",
+    "pg": "^8.5.1"
+  },
+  "scripts": {
+    "start": "node src/main",
+    "migrate": "caravel migrate"
+  }
+}

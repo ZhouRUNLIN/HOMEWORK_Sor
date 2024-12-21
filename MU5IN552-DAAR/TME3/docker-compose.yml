@@ -1,0 +1,30 @@
+services:
+  database:
+    build:
+      context: ./crud-database
+    container_name: database
+    environment:
+      POSTGRES_USER: books
+      POSTGRES_DB: books
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  crud-server:
+    build:
+      context: ./crud-main
+    container_name: crud-server
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./crud/.env
+    depends_on:
+      - database
+    links:
+      - database
+    restart: unless-stopped
+
+volumes:
+  db-data:

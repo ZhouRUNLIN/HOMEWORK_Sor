@@ -1,0 +1,8 @@
+# docker database setting-up 
+docker build -t database .
+docker run -p 5432:5432 -d -t --restart unless-stopped database
+
+# REST server set-up
+yarn migrate
+yarn start
+
