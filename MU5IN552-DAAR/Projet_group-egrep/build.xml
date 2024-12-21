@@ -1,0 +1,48 @@
+<project name="MyProject1" default="jar" basedir=".">
+
+    <!-- 设置目录属性 -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="jar.name" value="project1.jar"/>
+    <property name="resource.dir" value="src/testRessources"/>
+
+    <!-- 初始化任务 -->
+    <target name="init">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <!-- 编译 Java 文件 -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${build.dir}">
+            <include name="**/*.java"/>
+        </javac>
+    </target>
+
+    <!-- 复制资源文件 -->
+    <target name="copy-resources" depends="compile">
+        <copy todir="${build.dir}">
+            <fileset dir="${resource.dir}"/>
+        </copy>
+    </target>
+
+    <!-- 打包成 JAR -->
+    <target name="jar" depends="copy-resources">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.dir}/${jar.name}" basedir="${build.dir}">
+            <!-- 指定主类 -->
+            <manifest>
+                <attribute name="Main-Class" value="main"/>
+                <!-- main.class 路径，假设 main.java 是顶级类 -->
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- 清理任务 -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+</project>
