@@ -1,0 +1,65 @@
+<project name="TME_diskGraphs" default="compile" basedir=".">
+    <description>
+        The build file for the coffee break
+    </description>
+  <property name="src" location="src"/>
+  <property name="build" location="javabeans"/>
+
+    <target name="init">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <javac debug="true" classpath="${build}/:jars/*" srcdir="${src}" excludes="" destdir="${build}"/>
+  </target>
+  
+  <target name="rand" depends="compile"
+          description="generate examples">
+    <echo>================ Run Object Main ================</echo>
+    <java classname="supportGUI.RandomPointsGenerator"
+          classpath="${build}/:jars/*" fork="true">
+    </java>
+  </target>
+  <target name="goTest" depends="compile"
+          description="generate examples">
+    <echo>================ Run Object Main ================</echo>
+    <java classname="algorithms.TestBedEvaluator"
+          classpath="${build}/:jars/*" fork="true">
+    </java>
+  </target>
+
+  <target name="run" depends="compile"
+          description="run examples">
+    <echo>================ Run Object Main ================</echo>
+    <java classname="supportGUI.DiskGraphsViewer"
+          classpath="${build}/:jars/*" fork="true">
+    	<arg value="-nbPoints"/>
+    	<arg value="1000"/>
+    	<arg value="-edgeThreshold"/>
+    	<arg value="55"/>
+<!--
+    	<arg value="-proxyPPTI"/>
+-->
+    </java>
+  </target>
+
+  <target name="dist" depends="init,clean"
+        description="Generer la distribution" >
+    <!-- tout mettre dans l'archive -->
+    <jar basedir="." jarfile="../TME_diskGraphs_${DSTAMP}.jar"/>
+  </target>
+
+  <target name="clean"
+        description="clean up" >	
+	<echo>================ Removing temporary files... ================</echo>
+        <delete verbose="true"> <!-- Remove all *~ files -->
+	   <fileset dir="${basedir}" defaultexcludes="no">
+             <include name="**/*~"/>
+           </fileset>
+        </delete>
+        <echo>================ Removing build directory ================</echo>    
+	<delete dir="${build}"/>
+  </target>
+</project>
