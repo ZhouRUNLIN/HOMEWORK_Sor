@@ -1,0 +1,66 @@
+/* RedeemButton.module.css */
+
+.error {
+    color: red;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cardItem {
+    width: 100px;
+    height: 150px; 
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.6s;
+}
+
+.cardItem:hover {
+    transform: scale(1.1); 
+}
+
+.cardImage {
+    width: 100%;
+    height: 100%; 
+    border-radius: 8px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.confirmButton,
+.redeemButton {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.confirmButton:hover,
+.redeemButton:hover {
+    background-color: #45A049;
+}
+
+.redeemButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

@@ -1,0 +1,43 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "DOTENV_CONFIG_PATH=../.env hardhat node --export ../frontend/src/contracts.json --watch",
+    "console": "DOTENV_CONFIG_PATH=../.env hardhat console",
+    "compile": "DOTENV_CONFIG_PATH=../.env hardhat compile",
+    "deploy:local": "DOTENV_CONFIG_PATH=../.env hardhat deploy --network localhost --export ../frontend/src/contracts.json",
+    "deploy:staging": "DOTENV_CONFIG_PATH=../.env hardhat deploy --network kovan",
+    "deploy:production": "DOTENV_CONFIG_PATH=../.env hardhat deploy --network polygon",
+    "export:local": "DOTENV_CONFIG_PATH=../.env hardhat export --network localhost --export ../frontend/src/contracts.json",
+    "export:production": "DOTENV_CONFIG_PATH=../.env hardhat export --network polygon --export ../frontend/src/contracts.json",
+    "test": "DOTENV_CONFIG_PATH=../.env hardhat test"
+  },
+  "dependencies": {
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@typechain/ethers-v5": "^10.1.0",
+    "@typechain/hardhat": "^6.1.3",
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^10.0.0",
+    "chai": "^4.3.6",
+    "dotenv": "^16.0.3",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.7.2",
+    "hardhat": "^2.14.1",
+    "hardhat-deploy": "^0.11.18",
+    "hardhat-deploy-ethers": "^0.3.0-beta.13",
+    "hardhat-gas-reporter": "^1.0.9",
+    "prettier": "^2.7.1",
+    "solhint": "^3.3.7",
+    "solidity-coverage": "^0.8.2",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.1.0",
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {
+    "hardhat-abi-exporter": "^2.10.1"
+  }
+}

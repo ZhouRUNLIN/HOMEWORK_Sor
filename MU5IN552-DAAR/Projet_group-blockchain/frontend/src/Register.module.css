@@ -1,0 +1,14 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 90%; 
+    height: auto; 
+    object-fit: contain; 
+    cursor: pointer; 
+}
