@@ -1,1 +1,0 @@
-baseUrl = 'https://www.gutenberg.org/ebooks/'
