@@ -1,0 +1,20 @@
+server:
+  port: 8002
+
+spring:
+  datasource:
+
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+
+    url: jdbc:shardingsphere:classpath:shardingsphere-config.yaml
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+
+bmr:
+  flow-limit:
+    enable: true
+    time-window: 1
+    max-access-count: 20
