@@ -1,0 +1,65 @@
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/bmr?useUnicode=true&characterEncoding=UTF-8&rewriteBatchedStatements=true&allowMultiQueries=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: Rongyaojiwuming0!
+
+rules:
+  - !SHARDING
+    tables:
+      t_books:
+        actualDataNodes: ds_0.t_books_${0..15}
+        tableStrategy:
+          standard:
+            shardingColumn: id
+            shardingAlgorithmName: books_table_hash_mod
+        keyGenerateStrategy:
+          column: id
+          keyGeneratorName: snowflake
+
+      t_user_preference:
+        actualDataNodes: ds_0.t_user_preference_${0..15}
+        tableStrategy:
+          standard:
+            shardingColumn: user_name
+            shardingAlgorithmName: user_preference_hash_mod
+        keyGenerateStrategy:
+          column: id
+          keyGeneratorName: snowflake
+
+      t_user_bookmark:
+        actualDataNodes: ds_0.t_user_bookmark_${0..15}
+        tableStrategy:
+          standard:
+            shardingColumn: username
+            shardingAlgorithmName: user_preference_hash_mod
+        keyGenerateStrategy:
+          column: id
+          keyGeneratorName: snowflake
+
+    shardingAlgorithms:
+      books_table_hash_mod:
+        type: HASH_MOD
+        props:
+          sharding-count: 16
+
+      user_bookmark_hash_mod:
+        type: HASH_MOD
+        props:
+          sharding-count: 16
+
+      user_preference_hash_mod:
+        type: HASH_MOD
+        props:
+          sharding-count: 16
+
+    keyGenerators:
+      snowflake:
+        type: SNOWFLAKE
+        props:
+          worker-id: 123
+
+props:
+  sql-show: true

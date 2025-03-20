@@ -1,0 +1,34 @@
+server:
+  port: 8001
+
+spring:
+  datasource:
+    driver-class-name: org.apache.shardingsphere.driver.ShardingSphereDriver
+    url: jdbc:shardingsphere:classpath:shardingsphere-config.yaml
+  task:
+    scheduling:
+      pool:
+        size: 5
+  mvc:
+    view:
+      prefix: /templates/
+      suffix: .html
+
+elasticsearch:
+  host: 127.0.0.1
+  port: 9200
+  username: elastic
+  password: z38fb1zzs_SJXCL7Py3N
+  protocol: https
+
+scheduledTaskSyncElastic:
+  enabled: true
+  interval: 3000000
+  start: 6000
+
+scheduledTaskInsertBook:
+  enabled: true
+  interval: 6000000
+  url: resources/bookInfo
+  backingUp: resources/bookInfoBackingUp
+  formworkFile: resources/bookInfoFormwork.csv
